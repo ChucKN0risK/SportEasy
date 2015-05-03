@@ -47,9 +47,9 @@ if( !window.location.hash && window.addEventListener ){
 }
 
 $(function(){ 
-    $toggleMenu = $('#header-main__toggle-menu');
-    $userMenu = $('#user__menu');
-    $toggleMenuIcon = $("#toggleMenuIcon");
+    var $toggleMenu = $('#header-main__toggle-menu');
+    var $userMenu = $('#user__menu');
+    var $toggleMenuIcon = $("#toggleMenuIcon");
 
     $toggleMenu.click(function() {
         $userMenu.toggleClass('is-open');
@@ -187,49 +187,51 @@ $(function(){
     //List Team
     function teamList(addTeamForm) {
       constructor: {
-        var addTeamForm = $('#addTeamForm');
+        var $addTeamForm = $('#addTeamForm');
         var input = "";
-        var addTeamField = $('#addTeamField');
-        var teamList = $("#teamsWrapper");
+        var $addTeamField = $('#addTeamField');
+        var $teamList = $("#teamsWrapper");
         var removeIcon = "<a href='#' class='btn--small btn--small--delete'></a>";
-        var teamCount = $('#teamCount');
-        var teams = ["SportEasy Fanboy Club"];
+        var $teamCount = $('#teamCount');
+        this.teams = ["SportEasy Fanboy Club"];
       }
 
       this.initialize = function() {
-        addTeam();
-        removeTeam();
-        teamCount.append(teams.length);
-        console.log(teams);
+        this.addTeam();
+        this.removeTeam();
+        $teamCount.append(this.teams.length);
+        console.log(this.teams);
       }
 
-      var addTeam = function() {
-        addTeamForm.submit(function(e) {
+      this.addTeam = function() {
+        var that = this;
+        $addTeamForm.submit(function(e) {
           e.preventDefault();
-          input = addTeamField.val();
-          teamList.prepend("<li class='team'>" + input + removeIcon + "</li>");
+          input = $addTeamField.val();
+          $teamList.prepend('<li class="team"><span>' + input + '</span>' + removeIcon + '</li>');
           
           //Add Value in Array
-          teams[teams.length] = input;
-          addTeamField.val("");
+          that.teams.push(input);
+          $addTeamField.val("");
 
           //Update Team Count
-          teamCount.empty();
-          $teamCountUpdated = (teams.length);
-          console.log(teams);
-          console.log(teams.length);
-          teamCount.append($teamCountUpdated);
+          $teamCount.html(that.teams.length);
         });
       }
 
-      var removeTeam = function() {
-        teamList.on("click", ".btn--small--delete", function() {
-          $(this).closest("li").remove();
+      this.removeTeam = function() {
+        var that = this;
+        $teamList.on("click", ".btn--small--delete", function() {
+          var $el = $(this).closest("li");
+          //Input content stored in an index variable
+          var index = that.teams.indexOf($el.find('span').html());
+          //element removed of the dom
+          $el.remove();
+          //element removed of the array
+          that.teams.splice(index, 1);
 
           //Update Team Count
-          teamCount.empty();
-          console.log(teams + " updated");
-          teamCount.append($teamCountUpdated - 1);
+          $teamCount.html(that.teams.length);
         });
       };
     }
@@ -237,19 +239,20 @@ $(function(){
     $(function() {
       var list = new teamList(addTeamForm);
       list.initialize();
+      console.log(list.teams);
     });
 
 
 
     
-    //Matchdays
-    $matchdaysList = $('#matchdaysList');
-    // $matchdaysCount = ((teams.length * 2) - 2);
-    console.log(matchdaysCount);
+    // //Matchdays
+    // $matchdaysList = $('#matchdaysList');
+    // // $matchdaysCount = ((teams.length * 2) - 2);
+    // console.log(matchdaysCount);
 
-    $matchdaysList.on('click', '.matchday__header', function() {
-      $(this).closest('li').toggleClass('is-open');
-    });
+    // $matchdaysList.on('click', '.matchday__header', function() {
+    //   $(this).closest('li').toggleClass('is-open');
+    // });
 });
 
 
