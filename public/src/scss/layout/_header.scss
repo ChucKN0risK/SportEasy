@@ -1,0 +1,102 @@
+/* ==|====================
+   Layout/Header
+   ======================= */
+$header-h: 5rem;
+
+.header-main {
+  position: relative;
+  height: $header-h;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  overflow: hidden;
+  z-index: 2;
+  background-color: lighten(black, 20%);
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+}
+
+.header-main__logo {
+  width: 40%;
+}
+
+.header-main__toggle-menu {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-left: auto;
+
+  & > i {
+    color: white;
+    line-height: $header-h - 2;
+    margin-left: .5rem;
+  }
+}
+
+.user-pic {
+  position: relative;
+  display: block;
+  width: $header-h - 2;
+  height: $header-h - 2;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+
+  & > img { max-width: 100%; }
+}
+
+.user__menu {
+  position: absolute;
+  width: 100%;
+  background-color: $color1;
+  color: white;
+  list-style: none;
+  transform: translateY(-21rem);
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+  //Prevent DOM Repainting Issues
+  backface-visibility: hidden;
+  z-index: 1;
+
+  &.is-open { transform: translateY(0); }
+}
+
+$menu__item-h: $header-h - 1;
+
+.menu__item {
+  @include flex-vertical-center();
+  height: $menu__item-h;
+  // background-color: royalblue;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+
+  & > i {
+    margin-right: 1rem;
+  }
+}
+
+.user__teams {
+  // @include flex-vertical-center();
+  // flex-direction: row;
+  list-style: none;
+  height: $menu__item-h;
+  margin-left: 1rem;
+  background-color: tomato;
+}
+
+.team__icon {
+  display: block;
+  width: $menu__item-h - 1;
+  height: $menu__item-h - 1;
+  margin: .5rem;
+  border-radius: 50%;
+
+  & > img { max-width: 100%; }
+}
+
+
+
+
+
+
+

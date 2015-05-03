@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+// ----------------------
+// == Site settings
+// ----------------------
+
+// Html 5 Element
+$audio-canvas-video: false; // True | False
+
+// Fonts
+$font1: "Raleway", sans-serif;
+$font2: Georgia, serif;
+
+// = Colors
+// -----------------------------
+
+// Graphic chart
+$red: #E74C3C;
+$green: #27AE60;
+$blue: #0CA0D2;
+$facebook: #3B5998;
+$twitter: #43BfE1;
+
+$color1: $blue;
+$color2: $red;
+
+// Text
+$color-text-base: #212121;
+
+// link
+$color-link: $color1;
+$color-link-hover: darken($color1, 10%);
+
+// Mixin Placeholder
+$color-mixin-placeholder: #666;
+
+// Selection
+$color-selection: $color1;
+
+// Btn
+$bg-btn: #555;
+$bg-btn-hover: darken($bg-btn, 10%);
+$clr-btn: #212121;
+$clr-btn-hover: darken($clr-btn, 10%);
+
+// = Grid
+// -----------------------------
+
+// Max width wrapper
+$wrapper-width: pxtoem(1140, 16);
+
+// = Responsive
+// -----------------------------
+
+$width-large: 75em; // 1200/16
+$width-medium: 62em; // 992/16
+$width-small: 48em; // 768/16
+
+// = Retina Media Query
+// -----------------------------
+$is-hdpi : "-webkit-min-device-pixel-ratio: 1.5),
+	(min--moz-device-pixel-ratio: 1.5),
+	(-o-min-device-pixel-ratio: 3/2),
+	(min-device-pixel-ratio: 1.5),
+	(min-resolution: 1.5ddpx)";
+
+

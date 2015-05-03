@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Charte-Graphique" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="ICONS" sketch:type="MSArtboardGroup" transform="translate(-1014.000000, -545.000000)" fill="#1D1D1B">
+            <g id="mfg_labs_iconset" sketch:type="MSLayerGroup" transform="translate(240.000000, 109.000000)">
+                <g id="icons" transform="translate(0.000000, 114.000000)" sketch:type="MSShapeGroup">
+                    <path d="M790.94,334.299 L797.778,327.463 C798.966,326.276 798.966,324.362 797.778,323.192 C796.59,322.004 794.679,322.004 793.507,323.194 L786.661,330.032 L779.822,323.192 C778.637,322.004 776.727,322.004 775.551,323.194 C774.363,324.374 774.363,326.29 775.551,327.465 L782.39,334.303 L775.551,341.149 C774.363,342.332 774.363,344.248 775.551,345.42 C776.143,346.013 776.909,346.31 777.696,346.31 C778.467,346.31 779.248,346.013 779.842,345.42 L786.681,338.58 L793.52,345.418 C794.11,346.013 794.883,346.308 795.663,346.308 C796.434,346.308 797.217,346.013 797.809,345.418 C798.95,344.235 798.95,342.321 797.779,341.137 L790.94,334.299 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
