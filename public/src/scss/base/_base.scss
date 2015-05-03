@@ -30,6 +30,22 @@ button {
     border-radius: 2px;
 }
 
+.picker__holder {
+    overflow-y: hidden !important;
+    outline: none !important;
+    background: none !important;
+}
+
+.picker__frame { top: 0 !important; }
+
+.picker__box {
+    box-shadow: none !important;
+}
+
+.picker__footer {
+    display: none !important; 
+}
+
 .hidden { display: none; }
 
 ::-moz-selection {

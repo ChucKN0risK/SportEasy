@@ -47,9 +47,10 @@ if( !window.location.hash && window.addEventListener ){
 }
 
 $(function(){ 
+    
     var $toggleMenu = $('#header-main__toggle-menu');
     var $userMenu = $('#user__menu');
-    var $toggleMenuIcon = $("#toggleMenuIcon");
+    var $toggleMenuIcon = $('#toggleMenuIcon');
 
     $toggleMenu.click(function() {
         $userMenu.toggleClass('is-open');
@@ -61,6 +62,131 @@ $(function(){
         }     
     })
 
+    function stepsTransitions() {
+      constructor: {
+        var $step1 = $('#step1');
+        var $step2 = $('#step2');
+        var $step3 = $('#step3');
+
+        var $teamFirstInfos = $('#teamFirstInfos');
+        var $teamFirstInfosTrigger = $('#teamFirstInfosTrigger');
+
+        var $championshipKind = $('#championshipKind');
+        var $championshipKindTrigger = $('#championshipKindTrigger');
+
+        var $championshipDates = $('#championshipDates');
+        var $championshipDatesTrigger = $('#championshipDatesTrigger');
+
+        var $trainingSessions = $('#trainingSessions');
+        var $trainingSessionsTrigger = $('#trainingSessionsTrigger');
+        var $regularTrainingYes = $('#regularTrainingYes');
+        var $regularTrainingNo = $('#regularTrainingNo');
+
+        var $championshipTeams = $('#championshipTeams');
+        var $championshipTeamsTrigger = $('#championshipTeamsTrigger');
+
+        var $championshipMatchdays = $('#championshipMatchdays');
+        var $championshipMatchdaysTrigger = $('#championshipMatchdaysTrigger');
+
+        var $eventConvocation = $('#eventConvocation');
+        var $eventConvocationTrigger = $('#eventConvocationTrigger');
+        
+        var $regularTraining = $('#regularTraining');
+      }
+
+      this.initialize = function() {
+        this.firstTransition();
+        this.secondTransition();
+        this.thirdTransition();
+        this.fourthTransition();
+        this.fifthTransition();
+        this.sixthTransition();
+      }
+
+      this.firstTransition = function() {
+        $teamFirstInfosTrigger.click(function() {
+          $step1.velocity('transition.slideLeftBigOut', {stagger: 250});
+          $teamFirstInfos.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $championshipKind.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+            $step2.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+          return false;
+        });
+      }
+
+      this.secondTransition = function() {
+        $championshipKindTrigger.click(function() {
+          $championshipKind.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $championshipDates.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+          return false;
+        });
+      }
+
+      this.thirdTransition = function() {
+        $championshipDatesTrigger.click(function() {
+          $championshipDates.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $trainingSessions.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+          return false;
+        });
+      }
+
+      this.fourthTransition = function() {
+        $regularTrainingYes.click(function() {
+          // $trainingSessionsTrigger.velocity('transition.slideLeftBigOut', {stagger: 250});
+          // setTimeout(function() {
+          //   $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          //   $trainingSessionsTrigger.removeClass('hidden').velocity('transition.slideRightBigIn');
+          // }, 750);
+          $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+        })
+
+        $regularTrainingNo.click(function() {
+          $trainingSessionsTrigger.velocity('transition.slideLeftBigOut', {stagger: 250});
+          $regularTraining.removeClass('hidden').velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $trainingSessionsTrigger.removeClass('hidden').velocity('transition.slideRightBigIn');
+          }, 750);
+        })
+
+
+        $trainingSessionsTrigger.click(function() {
+          $trainingSessions.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $championshipTeams.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+          return false;
+        });
+      }
+
+      this.fifthTransition = function() {
+        $championshipTeamsTrigger.click(function() {
+          $championshipTeams.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $championshipMatchdays.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+          return false;
+        });
+      }
+
+      this.sixthTransition = function() {
+        $championshipMatchdaysTrigger.click(function() {
+          $championshipMatchdays.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $eventConvocation.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          }, 750);
+        });
+      }
+    }
+
+    $(function() {
+      var transitions = new stepsTransitions();
+      transitions.initialize();
+    });
   
     //Style Select Element Into Nice List Items
     
@@ -70,13 +196,13 @@ $(function(){
       // Cache the number of options
       var $this = $(this),
           numberOfOptions = $(this).children('option').length,
-          otherTrainingPlace = $('#otherTrainingPlace');
+          $otherTrainingPlace = $('#otherTrainingPlace');
 
       // Hides the select element
       $this.addClass('s-hidden');
 
       // Wrap the select element in a div
-      if ($this[0].name == "trainingDay") {
+      if ($this[0].name == 'trainingDay') {
           $this.wrap('<div class="select select--day"></div>');
       }
       else if ($this[0].name == "trainingHour") {
@@ -127,11 +253,11 @@ $(function(){
           $styledSelect.text($(this).text()).removeClass('active');
           $this.val($(this).attr('rel'));
           //Make appear address input if "Autre Stade" is selected
-          if ($this.val() == "Autre Stade") {
+          if ($this.val() == 'Autre Stade') {
             $(otherTrainingPlace).toggleClass('hidden');
           }
-          else if ($this.val() == "A Domicile") {
-            $(otherTrainingPlace).toggleClass('hidden');
+          else if ($this.val() == 'A Domicile') {
+            $(otherTrainingPlace).addClass('hidden');
           }
           $list.hide();
           /* console.log($this.val()); Uncomment this for demonstration! */
@@ -147,41 +273,41 @@ $(function(){
     
 
 
-    // //Season Dates
-    // var from_$input = $('#input_from').pickadate(),
-    //     from_picker = from_$input.pickadate('picker');
+    //Season Dates
+    var from_$input = $('#input_from').pickadate({
+      container: '#championshipDates',
+    }),
+        from_picker = from_$input.pickadate('picker');
 
-    // var to_$input = $('#input_to').pickadate(),
-    //     to_picker = to_$input.pickadate('picker');
+    var to_$input = $('#input_to').pickadate(),
+        to_picker = to_$input.pickadate('picker');
 
 
-    // // Check if there’s a “from” or “to” date to start with.
-    // if ( from_picker.get('value') ) {
-    //   to_picker.set('min', from_picker.get('select'))
-    // }
-    // if ( to_picker.get('value') ) {
-    //   from_picker.set('max', to_picker.get('select'))
-    // }
+    // Check if there’s a “from” or “to” date to start with.
+    if ( from_picker.get('value') ) {
+      to_picker.set('min', from_picker.get('select'))
+    }
+    if ( to_picker.get('value') ) {
+      from_picker.set('max', to_picker.get('select'))
+    }
 
-    // // When something is selected, update the “from” and “to” limits.
-    // from_picker.on('set', function(event) {
-    //   if ( event.select ) {
-    //     to_picker.set('min', from_picker.get('select'))    
-    //   }
-    //   else if ( 'clear' in event ) {
-    //     to_picker.set('min', false)
-    //   }
-    // })
-    // to_picker.on('set', function(event) {
-    //   if ( event.select ) {
-    //     from_picker.set('max', to_picker.get('select'))
-    //   }
-    //   else if ( 'clear' in event ) {
-    //     from_picker.set('max', false)
-    //   }
-    // })
-
-    
+    // When something is selected, update the “from” and “to” limits.
+    from_picker.on('set', function(event) {
+      if ( event.select ) {
+        to_picker.set('min', from_picker.get('select'))    
+      }
+      else if ( 'clear' in event ) {
+        to_picker.set('min', false)
+      }
+    })
+    to_picker.on('set', function(event) {
+      if ( event.select ) {
+        from_picker.set('max', to_picker.get('select'))
+      }
+      else if ( 'clear' in event ) {
+        from_picker.set('max', false)
+      }
+    })
 
 
     //List Team
@@ -190,17 +316,16 @@ $(function(){
         var $addTeamForm = $('#addTeamForm');
         var input = "";
         var $addTeamField = $('#addTeamField');
-        var $teamList = $("#teamsWrapper");
-        var removeIcon = "<a href='#' class='btn--small btn--small--delete'></a>";
+        var $teamList = $('#teamsWrapper');
+        var removeIcon = '<a href="#" class="btn--small btn--small--delete"></a>';
         var $teamCount = $('#teamCount');
-        this.teams = ["SportEasy Fanboy Club"];
+        this.teams = ['SportEasy Fanboy Club'];
       }
 
       this.initialize = function() {
         this.addTeam();
         this.removeTeam();
         $teamCount.append(this.teams.length);
-        console.log(this.teams);
       }
 
       this.addTeam = function() {
@@ -212,7 +337,7 @@ $(function(){
           
           //Add Value in Array
           that.teams.push(input);
-          $addTeamField.val("");
+          $addTeamField.val('');
 
           //Update Team Count
           $teamCount.html(that.teams.length);
@@ -221,7 +346,7 @@ $(function(){
 
       this.removeTeam = function() {
         var that = this;
-        $teamList.on("click", ".btn--small--delete", function() {
+        $teamList.on('click', '.btn--small--delete', function() {
           var $el = $(this).closest("li");
           //Input content stored in an index variable
           var index = that.teams.indexOf($el.find('span').html());
@@ -245,14 +370,18 @@ $(function(){
 
 
     
-    // //Matchdays
-    // $matchdaysList = $('#matchdaysList');
-    // // $matchdaysCount = ((teams.length * 2) - 2);
-    // console.log(matchdaysCount);
+    //Matchdays
+    function matchDays() {
+      constructor: {
+        var $matchdaysList = $('#matchdaysList');
+        var $matchdaysCount = ((that.teams.length * 2) - 2);
+        console.log($matchdaysCount);
+      }
+      $matchdaysList.on('click', '.matchday__header', function() {
+        $(this).closest('li').toggleClass('is-open');
+      });
+    }
 
-    // $matchdaysList.on('click', '.matchday__header', function() {
-    //   $(this).closest('li').toggleClass('is-open');
-    // });
 });
 
 

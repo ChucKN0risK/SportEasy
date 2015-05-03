@@ -71,209 +71,245 @@
       <div class="create-team">
 
           <div class="step__header">
-
-              <div class="step-1">
+              <div class="step-1" id="step1">
                 <div class="step__number">1</div>
                 <p class="step__title">Création de votre équipe</p>
               </div>
-
-              <div class="step-2">
+              <div class="step-2 hidden" id="step2">
                 <div class="step__number">2</div>
                 <p class="step__title">Mettez en place votre saison</p>
               </div>
-
-              <div class="step-3">
+              <div class="step-3 hidden" id="step3">
                 <div class="step__number">3</div>
                 <p class="step__title">Invitez vos cooéquipiers</p>
               </div>
-
           </div>
           
-          <!-- STEP 1 FORM -->
-          <!-- <form class="step__form" action="#">
-            
-            <p class="form__text">Votre équipe s'appelle</p>
-            
-            <input class="step__input" type="text" placeholder="Nom de votre équipe">
 
-            <p>et vous pratiquez le</p> -->
-
-            <!-- <select name="sports">
-              <option value="Baseball">Baseball</option>
-              <option value="Basket">Basket</option>
-              <option value="Cricket">Cricket</option>
-              <option value="Floorball">Floorball</option>
-              <option value="Football" selected>Football</option>
-              <option value="Football Américain">Football Américain</option>
-              <option value="Football Australien">Football Australien</option>
-              <option value="Handball">Handball</option>
-              <option value="Hockey sur Gazon">Hockey sur Gazon</option>
-              <option value="Hockey sur Glace">Hockey sur Glace</option>
-              <option value="Kayak Polo">Kayak Polo</option>
-              <option value="Lacrosse">Lacrosse</option>
-              <option value="Polo">Polo</option>
-              <option value="Roller Hockey">Roller Hockey</option>
-              <option value="Rugby">Rugby</option>
-              <option value="Street Hockey">Street Hockey</option>
-              <option value="Ultimate">Ultimate</option>
-              <option value="Volley">Volley</option>
-              <option value="Water Polo">Water Polo</option>
-            </select>
-
-            <button class="form__submit" type="submit">Étape suivante</button> 
-          </form>-->
-
-          <!-- STEP 2 FORM -->
-          <!-- <form class="step__form" action="#"> -->
-            
-            <!-- <p class="form__text">Souhaitez-vous mettre en place</p>
-            
-            <select name="season-type">
-              <option value="Un championnat">Un championnat</option>
-              <option value="Un championnat avec coupe">Un championnat avec coupe</option>
-              <option value="Une coupe">Une coupe</option>
-              <option value="Un match amical">Un match amical</option>
-              <option value="Un match entre nous" selected>Un match entre nous</option>
-            </select> -->
-
-            <!-- <p class="form__text">Votre saison se déroule du</p>
-
-            <input class="step__input" type="text" placeholder="Choisissez une date" id="input_from">
-
-            <p class="form__text">au</p>
-
-            <input class="step__input" type="text" placeholder="Choisissez une date" id="input_to"> -->
-
-            <!-- <p class="form__text">Quel est votre stade à domicile ?</p>
-
-            <input type="text" class="step_input" placeholder="ex: 2 Rue Louis Armand, Paris">
-
-            <p class="form__text">Avez vous des entraînements réguliers ?</p>
-            
-            <div class="choices-wrapper">
-              <div class="choice-wrapper">
-                <input type="radio" class="choice" id="regularTrainingYes" value="regularTrainingYes">
-                <label class="choice-label" for="regularTrainingYes">
-                  <span class="fake__radiobtn"></span>
-                  Oui
-                </label>
-                
-              </div>
-
-              <div class="choice-wrapper">
-                <input type="radio" class="choice" id="regularTrainingNo" value="regularTrainingNo">
-                <label class="choice-label" for="regularTrainingNo">
-                  <span class="fake__radiobtn"></span>
-                  Non
-                </label>
-              </div>              
-            </div> -->
-
-            <!-- <p class="form__text">Nous nous entraînons :</p>
-
-            <div class="trainingdate">
-              Tous les 
-              <select name="trainingDay" id="trainingDay">
-                <option value="Lundi">Lundi</option>
-                <option value="Mardi">Mardi</option>
-                <option value="Mercredi">Mercredi</option>
-                <option value="Jeudi">Jeudi</option>
-                <option value="Vendredi">Vendredi</option>
-                <option value="Samedi">Samedi</option>
-                <option value="Dimanche">Dimanche</option>
-              </select>
-              à
-              <select name="trainingHour" id="trainingHour">
-                <option value="08h">08h</option>
-                <option value="09h">09h</option>
-                <option value="10h">10h</option>
-                <option value="11h">11h</option>
-                <option value="12h">12h</option>
-                <option value="13h">13h</option>
-                <option value="14h">14h</option>
-                <option value="15h">15h</option>
-                <option value="16h">16h</option>
-                <option value="17h">17h</option>
-                <option value="18h">18h</option>
-                <option value="19h">19h</option>
-                <option value="20h">20h</option>
-                <option value="21h">21h</option>
-                <option value="22h">22h</option>
-                <option value="23h">23h</option>
-              </select>            
-            </div>
-
-            <select name="trainingPlace" id="trainingPlace">
-              <option value="A Domicile">A domicile</option>
-              <option value="Autre Stade" >Autre stade</option>
-            </select>
-
-            <input type="text" class="step_input hidden" id="otherTrainingPlace" placeholder="Indiquez une adresse">  
-
-            <button class="form__submit" type="submit">Étape suivante</button>
-          </form> -->
-
-          <p class="form__text">Ajoutez les autres équipes de votre championnat</p>
           
-          <form action="#" id="addTeamForm">  
-            <div class="addteam">
-              <a href="#" class="btn--small btn--small--add" type="submit"></a>
-              <input class="addteam__field" type="text" placeholder="Ajouter une équipe" id="addTeamField">
-            </div>
-            <ul class="teams" id="teamsWrapper">
-              <li class="team">
-                <p class="team__name">SportEasy Fanboy Club</p>
-                <a href="#" class="btn--small btn--small--delete"></a>
-              </li>
-              <span class="teamCount" id="teamCount"></span>
-            </ul>
-            <button class="form__submit" type="submit">Étape suivante</button>
-          </form>
+          <div class="hidde" id="teamFirstInfos">
+            <form class="step__form" action="#" id="teamFirstInfosForm">
+              
+              <p class="form__text">Votre équipe s'appelle</p>
+              
+              <input class="step__input" type="text" placeholder="Nom de votre équipe">
+              
+              <p class="form__text">et vous pratiquez le :</p>
+              
+              <select name="sports">
+                <option value="Baseball">Baseball</option>
+                <option value="Basket">Basket</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Floorball">Floorball</option>
+                <option value="Football" selected>Football</option>
+                <option value="Football Américain">Football Américain</option>
+                <option value="Football Australien">Football Australien</option>
+                <option value="Handball">Handball</option>
+                <option value="Hockey sur Gazon">Hockey sur Gazon</option>
+                <option value="Hockey sur Glace">Hockey sur Glace</option>
+                <option value="Kayak Polo">Kayak Polo</option>
+                <option value="Lacrosse">Lacrosse</option>
+                <option value="Polo">Polo</option>
+                <option value="Roller Hockey">Roller Hockey</option>
+                <option value="Rugby">Rugby</option>
+                <option value="Street Hockey">Street Hockey</option>
+                <option value="Ultimate">Ultimate</option>
+                <option value="Volley">Volley</option>
+                <option value="Water Polo">Water Polo</option>
+              </select>
 
-          <!-- <p class="form__text">Créez vos journées</p>
+              <button class="form__submit" type="submit" id="teamFirstInfosTrigger">Étape suivante</button> 
+            </form>
+          </div>
 
-          <ul class="matchdays" id="matchdaysList">
-            <li class="matchday">
-              <div class="matchday__header">
-                <span class="header__icon header__icon--check">
-                  <i class="icon-check_circle"></i>
-                </span>
-                <p class="header__matchday-number">Journée 1</p>
-                <span class="header__icon">
-                  <i class="icon-plus"></i>
-                </span>
-              </div>
-              <div class="matchday__content">
-                <div class="match">
-                  <p class="match__date">
-                    <span class="date__icon">
-                      <i class="icon-calendar"></i>
-                    </span>
-                    12/06/2015
-                  </p>
-                  <p class="hometeam">SportEasy FanBoy Club</p>
-                  <p class="versus">VS</p>
-                  <p class="awayteam">Saint Maur Lusitanos</p>
+          
+
+          <div class="hidden" id="championshipKind">
+            <form class="step__form" action="#" id="championshipKindForm">
+              <p class="form__text">Souhaitez-vous mettre en place</p>
+              
+              <select name="season-type">
+                <option value="Un championnat">Un championnat</option>
+                <option value="Un championnat avec coupe">Un championnat avec coupe</option>
+                <option value="Une coupe">Une coupe</option>
+                <option value="Un match amical">Un match amical</option>
+                <option value="Un match entre nous" selected>Un match entre nous</option>
+              </select>
+
+              <button class="form__submit" type="submit" id="championshipKindTrigger">Étape suivante</button>
+            </form>
+          </div>
+          
+          
+
+          <div class="hidden" id="championshipDates">
+            <form class="step__form" action="#" id="championshipDatesForm">
+              
+              <p class="form__text">Votre saison se déroule du</p>
+              <input class="step__input" type="text" placeholder="Choisissez une date" id="input_from">
+
+              <p class="form__text">au</p>
+              <input class="step__input" type="text" placeholder="Choisissez une date" id="input_to">
+
+              <p class="form__text">Quel est votre stade à domicile ?</p>
+              <input type="text" class="step__input" placeholder="ex: 2 Rue Louis Armand, Paris">
+
+              <button class="form__submit" type="submit" id="championshipDatesTrigger">Étape suivante</button>
+            </form>
+          </div>
+
+
+
+          <div class="hidden" id="trainingSessions">
+            <form class="step__form" action="#" id="trainingSessionsForm">
+              <p class="form__text">Avez vous des entraînements réguliers ?</p>
+            
+              <div class="choices-wrapper">
+                <div class="choice-wrapper">
+                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingYes" value="regularTrainingYes">
+                  <label class="choice-label" for="regularTrainingYes">
+                    <span class="fake__radiobtn" id="regularTrainingYes"></span>
+                    Oui
+                  </label>
                 </div>
-                <div class="match__infos">
-                  <a class="match__info match__address" href="#">
-                    <span class="info__icon">
-                      <i class="icon-placepin"></i>
-                    </span>
-                    Stade de France
-                  </a>
-                  <p class="match__info match__time">
-                    <span class="info__icon">
-                      <i class="icon-clock"></i>
-                    </span>
-                    16h15
-                  </p>
-                </div>
-              </div>
-            </li>
 
-            <span class="matchdaysCount" id="matchdaysCount">1/12</span>
-          </ul> -->
+                <div class="choice-wrapper">
+                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingNo" value="regularTrainingNo" checked>
+                  <label class="choice-label" for="regularTrainingNo">
+                    <span class="fake__radiobtn" id="regularTrainingNo"></span>
+                    Non
+                  </label>
+                </div>              
+              </div>
+
+              <div class="hidden" id="regularTraining">
+                <p class="form__text">Vous vous entraînez :</p>
+
+                <div class="trainingdate">
+                  Tous les 
+                  <select name="trainingDay" id="trainingDay">
+                    <option value="Lundi">Lundi</option>
+                    <option value="Mardi">Mardi</option>
+                    <option value="Mercredi">Mercredi</option>
+                    <option value="Jeudi">Jeudi</option>
+                    <option value="Vendredi">Vendredi</option>
+                    <option value="Samedi">Samedi</option>
+                    <option value="Dimanche">Dimanche</option>
+                  </select>
+                  à
+                  <select name="trainingHour" id="trainingHour">
+                    <option value="08h">08h</option>
+                    <option value="09h">09h</option>
+                    <option value="10h">10h</option>
+                    <option value="11h">11h</option>
+                    <option value="12h">12h</option>
+                    <option value="13h">13h</option>
+                    <option value="14h">14h</option>
+                    <option value="15h">15h</option>
+                    <option value="16h">16h</option>
+                    <option value="17h">17h</option>
+                    <option value="18h">18h</option>
+                    <option value="19h">19h</option>
+                    <option value="20h">20h</option>
+                    <option value="21h">21h</option>
+                    <option value="22h">22h</option>
+                    <option value="23h">23h</option>
+                  </select>            
+                </div>
+
+                <select name="trainingPlace" id="trainingPlace">
+                  <option value="A Domicile">A domicile</option>
+                  <option value="Autre Stade" >Autre stade</option>
+                </select>
+
+                <input type="text" class="step__input hidden" id="otherTrainingPlace" placeholder="Indiquez une adresse">
+              </div>  
+
+              <button class="form__submit" type="submit" id="trainingSessionsTrigger">Étape suivante</button>
+            </form>
+          </div>
+
+            
+          <div class="hidden" id="championshipTeams">
+            <form action="#" id="addTeamForm">
+
+            <p class="form__text">Ajoutez les autres équipes de votre championnat.</p>
+
+              <div class="addteam">
+                <a href="#" class="btn--small btn--small--add" type="submit"></a>
+                <input class="addteam__field" type="text" placeholder="Ajouter une équipe" id="addTeamField">
+              </div>
+
+              <ul class="teams" id="teamsWrapper">
+                <li class="team">
+                  <p class="team__name">SportEasy Fanboy Club</p>
+                </li>
+                <span class="teamCount" id="teamCount"></span>
+              </ul>
+
+              <button class="form__submit" type="submit" id="championshipTeamsTrigger">Étape suivante</button>
+            </form>
+          </div>
+
+
+          <div class="hidden" id="championshipMatchdays">
+            <form class="step__form" action="#" id="championshipMatchdaysForm">
+              <p class="form__text">Créez vos journées</p>
+
+              <ul class="matchdays" id="matchdaysList">
+                <li class="matchday">
+                  <div class="matchday__header">
+                    <span class="header__icon header__icon--check">
+                      <i class="icon-check_circle"></i>
+                    </span>
+                    <p class="header__matchday-number">Journée 1</p>
+                    <span class="header__icon">
+                      <i class="icon-plus"></i>
+                    </span>
+                  </div>
+                  <div class="matchday__content">
+                    <div class="match">
+                      <p class="match__date">
+                        <span class="date__icon">
+                          <i class="icon-calendar"></i>
+                        </span>
+                        12/06/2015
+                      </p>
+                      <p class="hometeam">SportEasy FanBoy Club</p>
+                      <p class="versus">VS</p>
+                      <p class="awayteam">Saint Maur Lusitanos</p>
+                    </div>
+                    <div class="match__infos">
+                      <a class="match__info match__address" href="#">
+                        <span class="info__icon">
+                          <i class="icon-placepin"></i>
+                        </span>
+                        Stade de France
+                      </a>
+                      <p class="match__info match__time">
+                        <span class="info__icon">
+                          <i class="icon-clock"></i>
+                        </span>
+                        16h15
+                      </p>
+                    </div>
+                  </div>
+                </li>
+
+                <span class="matchdaysCount" id="matchdaysCount">1/12</span>
+              </ul>
+
+              <button class="form__submit" type="submit" id="championshipMatchdaysTrigger">Étape suivante</button> 
+            </form>
+          </div>
+
+
+          <div class="hidden" id="eventConvocation">
+            <form class="step__form" action="#" id="eventConvocationForm"></form>
+            <button class="form__submit" type="submit" id="eventConvocationTrigger">Étape suivante</button>
+          </div>
+
+          
 
       </div>
     </div>
