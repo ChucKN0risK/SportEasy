@@ -130,7 +130,7 @@ $('select').each(function () {
         if ($this.val() == "Autre Stade") {
           $(otherTrainingPlace).toggleClass('hidden');
         }
-        else {
+        else if ($this.val() == "A Domicile") {
           $(otherTrainingPlace).toggleClass('hidden');
         }
         $list.hide();
