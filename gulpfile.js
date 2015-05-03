@@ -13,7 +13,7 @@ console.log(htmlPath);
 
 gulp.task('serve', function() {
   browserSync({
-    proxy: "http://localhost:8888/Perso/SportEasy/dev/"
+    proxy: "http://localhost:8888/Perso/SportEasy/SportEasy/"
   });
 
   gulp.watch(sassPath, ['sass']);

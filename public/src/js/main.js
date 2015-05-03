@@ -128,7 +128,10 @@ $('select').each(function () {
         $this.val($(this).attr('rel'));
         //Make appear address input if "Autre Stade" is selected
         if ($this.val() == "Autre Stade") {
-            // $(otherTrainingPlace).velocity()
+          $(otherTrainingPlace).toggleClass('hidden');
+        }
+        else {
+          $(otherTrainingPlace).toggleClass('hidden');
         }
         $list.hide();
         /* console.log($this.val()); Uncomment this for demonstration! */
@@ -234,7 +237,7 @@ $(function() {
 
 //Matchdays
 $matchdaysList = $('#matchdaysList');
-$matchdaysCount = ((teams.length * 2) - 2);
+// $matchdaysCount = ((teams.length * 2) - 2);
 console.log(matchdaysCount);
 
 $matchdaysList.on('click', '.matchday__header', function() {
