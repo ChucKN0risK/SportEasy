@@ -64,6 +64,8 @@ $(function(){
 
     function stepsTransitions() {
       constructor: {
+        var $progressBar = $('#progressBar');
+
         var $step1 = $('#step1');
         var $step2 = $('#step2');
         var $step3 = $('#step3');
@@ -104,6 +106,7 @@ $(function(){
 
       this.firstTransition = function() {
         $teamFirstInfosTrigger.click(function() {
+          $progressBar.addClass('progress-bar--1');
           $step1.velocity('transition.slideLeftBigOut', {stagger: 250});
           $teamFirstInfos.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
@@ -116,6 +119,7 @@ $(function(){
 
       this.secondTransition = function() {
         $championshipKindTrigger.click(function() {
+          $progressBar.addClass('progress-bar--2');
           $championshipKind.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
             $championshipDates.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
@@ -126,6 +130,7 @@ $(function(){
 
       this.thirdTransition = function() {
         $championshipDatesTrigger.click(function() {
+          $progressBar.addClass('progress-bar--3');
           $championshipDates.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
             $trainingSessions.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
@@ -136,6 +141,7 @@ $(function(){
 
       this.fourthTransition = function() {
         $regularTrainingYes.click(function() {
+          $progressBar.addClass('progress-bar--4');
           $trainingSessionsTrigger.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
             $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
@@ -163,6 +169,7 @@ $(function(){
 
       this.fifthTransition = function() {
         $championshipTeamsTrigger.click(function() {
+          $progressBar.addClass('progress-bar--5');
           $championshipTeams.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
             $championshipMatchdays.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
@@ -173,6 +180,7 @@ $(function(){
 
       this.sixthTransition = function() {
         $championshipMatchdaysTrigger.click(function() {
+          $progressBar.addClass('progress-bar--6');
           $step2.velocity('transition.slideLeftBigOut', {stagger: 250});
           $championshipMatchdays.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
