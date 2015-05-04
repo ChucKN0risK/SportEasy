@@ -81,6 +81,7 @@ $(function(){
         var $trainingSessionsTrigger = $('#trainingSessionsTrigger');
         var $regularTrainingYes = $('#regularTrainingYes');
         var $regularTrainingNo = $('#regularTrainingNo');
+        var $regularTraining = $('#regularTraining');
 
         var $championshipTeams = $('#championshipTeams');
         var $championshipTeamsTrigger = $('#championshipTeamsTrigger');
@@ -88,10 +89,8 @@ $(function(){
         var $championshipMatchdays = $('#championshipMatchdays');
         var $championshipMatchdaysTrigger = $('#championshipMatchdaysTrigger');
 
-        var $eventConvocation = $('#eventConvocation');
-        var $eventConvocationTrigger = $('#eventConvocationTrigger');
-        
-        var $regularTraining = $('#regularTraining');
+        var $addTeammates = $('#addTeammates');
+        var $addTeammatesTrigger = $('#addTeammatesTrigger');        
       }
 
       this.initialize = function() {
@@ -137,12 +136,11 @@ $(function(){
 
       this.fourthTransition = function() {
         $regularTrainingYes.click(function() {
-          // $trainingSessionsTrigger.velocity('transition.slideLeftBigOut', {stagger: 250});
-          // setTimeout(function() {
-          //   $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
-          //   $trainingSessionsTrigger.removeClass('hidden').velocity('transition.slideRightBigIn');
-          // }, 750);
-          $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+          $trainingSessionsTrigger.velocity('transition.slideLeftBigOut', {stagger: 250});
+          setTimeout(function() {
+            $regularTraining.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+            $trainingSessionsTrigger.removeClass('hidden').velocity('transition.slideRightBigIn');
+          }, 750);
         })
 
         $regularTrainingNo.click(function() {
@@ -175,9 +173,11 @@ $(function(){
 
       this.sixthTransition = function() {
         $championshipMatchdaysTrigger.click(function() {
+          $step2.velocity('transition.slideLeftBigOut', {stagger: 250});
           $championshipMatchdays.velocity('transition.slideLeftBigOut', {stagger: 250});
           setTimeout(function() {
-            $eventConvocation.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+            $addTeammates.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
+            $step3.removeClass('hidden').velocity('transition.slideRightBigIn', {stagger: 250});
           }, 750);
         });
       }
@@ -189,7 +189,6 @@ $(function(){
     });
   
     //Style Select Element Into Nice List Items
-    
     // Iterate over each select element
     $('select').each(function () {
 
@@ -270,45 +269,6 @@ $(function(){
       });
     });
 
-    
-
-
-    //Season Dates
-    var from_$input = $('#input_from').pickadate({
-      container: '#championshipDates',
-    }),
-        from_picker = from_$input.pickadate('picker');
-
-    var to_$input = $('#input_to').pickadate(),
-        to_picker = to_$input.pickadate('picker');
-
-
-    // Check if there’s a “from” or “to” date to start with.
-    if ( from_picker.get('value') ) {
-      to_picker.set('min', from_picker.get('select'))
-    }
-    if ( to_picker.get('value') ) {
-      from_picker.set('max', to_picker.get('select'))
-    }
-
-    // When something is selected, update the “from” and “to” limits.
-    from_picker.on('set', function(event) {
-      if ( event.select ) {
-        to_picker.set('min', from_picker.get('select'))    
-      }
-      else if ( 'clear' in event ) {
-        to_picker.set('min', false)
-      }
-    })
-    to_picker.on('set', function(event) {
-      if ( event.select ) {
-        from_picker.set('max', to_picker.get('select'))
-      }
-      else if ( 'clear' in event ) {
-        from_picker.set('max', false)
-      }
-    })
-
 
     //List Team
     function teamList(addTeamForm) {
@@ -332,6 +292,7 @@ $(function(){
         var that = this;
         $addTeamForm.submit(function(e) {
           e.preventDefault();
+          console.log(e);
           input = $addTeamField.val();
           $teamList.prepend('<li class="team"><span>' + input + '</span>' + removeIcon + '</li>');
           
@@ -364,22 +325,120 @@ $(function(){
     $(function() {
       var list = new teamList(addTeamForm);
       list.initialize();
-      console.log(list.teams);
+      console.log(addTeamForm);
     });
-
-
-
     
     //Matchdays
     function matchDays() {
-      constructor: {
-        var $matchdaysList = $('#matchdaysList');
-        var $matchdaysCount = ((that.teams.length * 2) - 2);
-        console.log($matchdaysCount);
-      }
+      var $matchdaysList = $('#matchdaysList');
+      var $matchdaysCount = ((that.teams.length * 2) - 2);
+      console.log($matchdaysCount);
+
       $matchdaysList.on('click', '.matchday__header', function() {
-        $(this).closest('li').toggleClass('is-open');
+          $(this).closest('li').toggleClass('is-open');
       });
+    };
+
+    //List Team
+    function teammatesList(addTeamForm) {
+      constructor: {
+        var $addTeammatesForm = $('#addTeammatesForm');
+        var input = "";
+        var $addTeammatesField = $('#addTeammatesField');
+        var $teammatesList = $('#teammatessWrapper');
+        var removeIcon = '<a href="#" class="btn--small btn--small--delete"></a>';
+        var $teammatesCount = $('#teammatesCount');
+        this.teammates = [];
+      }
+
+      this.initialize = function() {
+        this.addTeammates();
+        this.removeTeammates();
+        $teammatesCount.append(this.teammates.length);
+      }
+
+      this.addTeammates = function() {
+        var that = this;
+        $addTeammatesForm.submit(function(e) {
+          e.preventDefault();
+          console.log(e);
+          input = $addTeammatesField.val();
+          $teammatesList.prepend('<li class="team"><span>' + input + '</span>' + removeIcon + '</li>');
+          
+          //Add Value in Array
+          that.teammates.push(input);
+          $addTeammatesField.val('');
+
+          //Update Team Count
+          $teammatesCount.html(that.teammates.length);
+        });
+      }
+
+      this.removeTeammates = function() {
+        var that = this;
+        $teammatesList.on('click', '.btn--small--delete', function() {
+          var $el = $(this).closest("li");
+          //Input content stored in an index variable
+          var index = that.teammates.indexOf($el.find('span').html());
+          //element removed of the dom
+          $el.remove();
+          //element removed of the array
+          that.teammates.splice(index, 1);
+
+          //Update Team Count
+          $teammatesCount.html(that.teammates.length);
+        });
+      };
+    }
+
+    $(function() {
+      var list = new teammatesList(addTeammatesForm);
+      list.initialize();
+      console.log(addTeammatesForm);
+    });
+
+    var seasonDates = function() {
+
+      //Season Dates
+      var $from_input = $('#input_from').pickadate({
+        container: '#championshipDates',
+      });
+      var from_picker = $from_input.pickadate('picker');
+
+      var $to_input = $('#input_to').pickadate();
+      var to_picker = $to_input.pickadate('picker');
+
+      console.log($from_input);
+      console.log($from_picker);
+      console.log($to_inout);
+      console.log($to_picker);
+
+
+      // Check if there’s a “from” or “to” date to start with.
+      if ( from_picker.get('value') ) {
+        to_picker.set('min', from_picker.get('select'))
+      }
+      if ( to_picker.get('value') ) {
+        from_picker.set('max', to_picker.get('select'))
+      }
+
+      // When something is selected, update the “from” and “to” limits.
+      from_picker.on('set', function(event) {
+        if ( event.select ) {
+          to_picker.set('min', from_picker.get('select'))    
+        }
+        else if ( 'clear' in event ) {
+          to_picker.set('min', false)
+        }
+      })
+      to_picker.on('set', function(event) {
+        if ( event.select ) {
+          from_picker.set('max', to_picker.get('select'))
+        }
+        else if ( 'clear' in event ) {
+          from_picker.set('max', false)
+        }
+      })
     }
 
 });

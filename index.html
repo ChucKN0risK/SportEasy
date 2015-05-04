@@ -166,7 +166,7 @@
             
               <div class="choices-wrapper">
                 <div class="choice-wrapper">
-                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingYes" value="regularTrainingYes">
+                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingYes" value="regularTrainingYes" checked>
                   <label class="choice-label" for="regularTrainingYes">
                     <span class="fake__radiobtn" id="regularTrainingYes"></span>
                     Oui
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="choice-wrapper">
-                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingNo" value="regularTrainingNo" checked>
+                  <input type="radio" class="choice" name="regulartrainingchoice" id="regularTrainingNo" value="regularTrainingNo">
                   <label class="choice-label" for="regularTrainingNo">
                     <span class="fake__radiobtn" id="regularTrainingNo"></span>
                     Non
@@ -182,7 +182,7 @@
                 </div>              
               </div>
 
-              <div class="hidden" id="regularTraining">
+              <div class="hidde" id="regularTraining">
                 <p class="form__text">Vous vous entraînez :</p>
 
                 <div class="trainingdate">
@@ -247,7 +247,7 @@
                 <span class="teamCount" id="teamCount"></span>
               </ul>
 
-              <button class="form__submit" type="submit" id="championshipTeamsTrigger">Étape suivante</button>
+              <button class="form__submit" type="button" id="championshipTeamsTrigger">Étape suivante</button>
             </form>
           </div>
 
@@ -304,9 +304,22 @@
           </div>
 
 
-          <div class="hidden" id="eventConvocation">
-            <form class="step__form" action="#" id="eventConvocationForm"></form>
-            <button class="form__submit" type="submit" id="eventConvocationTrigger">Étape suivante</button>
+          <div class="hidden" id="addTeammates">
+            <form action="#" id="addTeammatesForm" id="addTeammatesForm">
+
+            <p class="form__text">Invitez vos coéquipiers</p>
+
+              <div class="addteam">
+                <a href="#" class="btn--small btn--small--add" type="submit"></a>
+                <input class="addteam__field" type="email" placeholder="addresse@email.com" id="addTeammatesField">
+              </div>
+
+              <ul class="teams" id="teammatessWrapper">
+                <span class="teamCount" id="teammatesCount"></span>
+              </ul>
+
+              <button class="form__submit" type="button" id="addTeammatesTrigger">Étape suivante</button>
+            </form>
           </div>
 
           
