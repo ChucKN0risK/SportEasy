@@ -73,6 +73,8 @@ $menu__item-h: $header-h - 1;
   & > i {
     margin-right: 1rem;
   }
+
+  @include subtle-sep(top, 1px, rgba(white, 0.3));
 }
 
 .user__teams {

@@ -385,6 +385,35 @@ $desktop: 1024px;
   @include add-icon($color);
 }
 
+//Subtle Separator
+@mixin subtle-sep($dir, $width, $color) {
+  $gradient: left;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    #{$dir}: 0;
+    @if $dir == bottom or $dir == top {
+      display: block;
+      height: $width;
+      width: 100%;
+      left: 0;
+    } @else {
+      top: 0;
+      width: $width;
+      height: 100%;
+      $gradient: top;
+    }
+    background: linear-gradient($gradient, transparent, $color, transparent);
+  }
+}
+
+//Example
+// li + li {
+//   @include subtle-sep(top, 1px, rgba(black, 0.2)); //Or bottom or left
+//   // simulates border-top: 1px solid rgba(black, 0.2); 
+// }
+
 
 
 
